@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Now!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="leftside">
@@ -20,54 +22,47 @@
         Do note that by clicking the "Create Account" button, you are agreeing to sit with me and roast marshmallows virtually to create our imaginary S'mores.
     </p>
 
+    <div class="leggo">
+
     <h1>Let's do this.</h1>
     <div class="form-box">
     <form action="#" method="get">
         <div class="column1">
-            <label for="fname">First name</label>
-        </div>
-        <div class="column1">
+            <label for="fname">First name</label><br>
             <input type="text" id="fname" name="first_name" placeholder="Jon" required >
         </div>
         <div class="column2">
-            <label for="lname">Last name</label>
-        </div>
-        <div class="column2">
+            <label for="lname">Last name</label><br>
             <input type="text" id="lname" name="last_name" placeholder="Snow" required >
         </div>
         <div class="column1">
-            <label for="email">Email</label>
-        </div>
-        <div class="column1">
+            <label for="email">Email</label><br>
             <input type="email" id="email" name="email" placeholder="knowsnothing@got.com" title="Please enter a valid email address, example: knowsnothing@got.com" required >
         </div>
         <div class="column2">
-            <label for="phone">Phone Number</label>
-        </div>
-        <div class="column2">
+            <label for="phone">Phone Number</label><br>
             <input type="text" pattern="^[^0-9]+$" id="phone" name="phone_number" placeholder="123-456-7890" title="Please enter a valid phone number, example: 123-456-7890">
         </div>
         <div class="column1">
-            <label for="pwd">Password</label>
-        </div>
-        <div class="column1">
+            <label for="pwd">Password</label><br>
             <input type="password" id="pwd" name="password" required >
         </div>
         <div class="column2">
-            <label for="confirmpwd">Confirm Password</label>
-        </div>
-        <div class="column2">
+            <label for="confirmpwd">Confirm Password</label><br>
             <input type="password" id="confirmpwd" name="confirm_password" required >
         </div>
 
         <div>
             <input type="checkbox" id="newsletter" name="news_letter" checked >
-            <label for="newsletter">Send me weekly <span id="potions" >potions</span> while I'm questing!</label>
+            <label for="newsletter">Send me weekly <span id="potions" >potions</span> while I'm away questing!</label>
           </div>
 
           <button type="submit">Create Account</button>
     </form>
+
     </div>
+    </div>
+    
     <p>Already have an account? Log in</p> 
 
     </div>
