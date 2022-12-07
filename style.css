@@ -1,13 +1,39 @@
 body {
     display: flex;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .rightside {
-    width: 60%;
+    width: 70vw;
+    align-items: center;
+}
+
+img {
+    display: block;
+    width: 30vw;
+    position: relative;
+}
+
+.form-box { 
+    padding: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 label, input:placeholder-shown {
     font-size: 1.2em;
+}
+
+label {
+    text-align: right;
+    width: 100px;
+    white-space: nowrap;
+}
+
+.column1, .column2
+{
+    display: inline-block;
 }
 
 input,
@@ -21,8 +47,23 @@ button {
   box-sizing: border-box;
 }
 
+button {
+    border-radius: 10px;
+}
+
 input#newsletter {
     width: 20px;
+}
+
+#phototext {
+    text-align: center;
+    position: absolute;
+    bottom: 0.5%;
+    left: 1%;
+}
+
+#phototext, :any-link {
+    color:white;
 }
 
 a:hover,

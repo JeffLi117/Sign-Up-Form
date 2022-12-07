@@ -9,7 +9,9 @@
 </head>
 <body>
     <div class="leftside">
-        <img src="" alt="campfire">Photo by <a href="https://unsplash.com/@heftiba?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Toa Heftiba</a> on <a href="https://unsplash.com/s/photos/campfire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        <img src="https://github.com/JeffLi117/Sign-Up-Form/blob/main/toa-heftiba-DUXACn8tgp4-unsplash.jpg?raw=true" alt="campfire">
+        <div id="phototext">Photo by <a href="https://unsplash.com/@heftiba?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Toa Heftiba</a> on <a href="https://unsplash.com/s/photos/campfire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </div>
     </div>
     <div class="rightside">
     <p>
@@ -19,41 +21,42 @@
     </p>
 
     <h1>Let's do this.</h1>
+    <div class="form-box">
     <form action="#" method="get">
-        <div>
+        <div class="column1">
             <label for="fname">First name</label>
         </div>
-        <div>
+        <div class="column1">
             <input type="text" id="fname" name="first_name" placeholder="Jon" required >
         </div>
-        <div>
+        <div class="column2">
             <label for="lname">Last name</label>
         </div>
-        <div>
+        <div class="column2">
             <input type="text" id="lname" name="last_name" placeholder="Snow" required >
         </div>
-        <div>
+        <div class="column1">
             <label for="email">Email</label>
         </div>
-        <div>
+        <div class="column1">
             <input type="email" id="email" name="email" placeholder="knowsnothing@got.com" title="Please enter a valid email address, example: knowsnothing@got.com" required >
         </div>
-        <div>
+        <div class="column2">
             <label for="phone">Phone Number</label>
         </div>
-        <div>
+        <div class="column2">
             <input type="text" pattern="^[^0-9]+$" id="phone" name="phone_number" placeholder="123-456-7890" title="Please enter a valid phone number, example: 123-456-7890">
         </div>
-        <div>
+        <div class="column1">
             <label for="pwd">Password</label>
         </div>
-        <div>
+        <div class="column1">
             <input type="password" id="pwd" name="password" required >
         </div>
-        <div>
+        <div class="column2">
             <label for="confirmpwd">Confirm Password</label>
         </div>
-        <div>
+        <div class="column2">
             <input type="password" id="confirmpwd" name="confirm_password" required >
         </div>
 
@@ -64,7 +67,7 @@
 
           <button type="submit">Create Account</button>
     </form>
-
+    </div>
     <p>Already have an account? Log in</p> 
 
     </div>
