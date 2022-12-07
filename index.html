@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Now!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="leftside">
+        <img src="" alt="campfire">Photo by <a href="https://unsplash.com/@heftiba?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Toa Heftiba</a> on <a href="https://unsplash.com/s/photos/campfire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    </div>
+    <div class="rightside">
+    <p>
+        Hello, traveler. You look weary. Perhaps you could use a short rest by the bonfire before resuming your travels on the deep, dark abyss known as the internet? Do stay and sign up on this <em>totally real</em> online service that I made for fun. 
+        <br><br>
+        Do note that by clicking the "Create Account" button, you are agreeing to sit with me and roast marshmallows virtually to create our imaginary S'mores.
+    </p>
+
+    <h1>Let's do this.</h1>
+    <form action="#" method="get">
+        <div>
+            <label for="fname">First name</label>
+        </div>
+        <div>
+            <input type="text" id="fname" name="first_name" placeholder="Jon" required >
+        </div>
+        <div>
+            <label for="lname">Last name</label>
+        </div>
+        <div>
+            <input type="text" id="lname" name="last_name" placeholder="Snow" required >
+        </div>
+        <div>
+            <label for="email">Email</label>
+        </div>
+        <div>
+            <input type="email" id="email" name="email" placeholder="knowsnothing@got.com" title="Please enter a valid email address, example: knowsnothing@got.com" required >
+        </div>
+        <div>
+            <label for="phone">Phone Number</label>
+        </div>
+        <div>
+            <input type="text" pattern="^[^0-9]+$" id="phone" name="phone_number" placeholder="123-456-7890" title="Please enter a valid phone number, example: 123-456-7890">
+        </div>
+        <div>
+            <label for="pwd">Password</label>
+        </div>
+        <div>
+            <input type="password" id="pwd" name="password" required >
+        </div>
+        <div>
+            <label for="confirmpwd">Confirm Password</label>
+        </div>
+        <div>
+            <input type="password" id="confirmpwd" name="confirm_password" required >
+        </div>
+
+        <div>
+            <input type="checkbox" id="newsletter" name="news_letter" checked >
+            <label for="newsletter">Send me weekly <span id="potions" >potions</span> while I'm questing!</label>
+          </div>
+
+          <button type="submit">Create Account</button>
+    </form>
+
+    <p>Already have an account? Log in</p> 
+
+    </div>
+</body>
+</html>

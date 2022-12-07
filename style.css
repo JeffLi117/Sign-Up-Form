@@ -1,0 +1,37 @@
+body {
+    display: flex;
+}
+
+.rightside {
+    width: 60%;
+}
+
+label, input:placeholder-shown {
+    font-size: 1.2em;
+}
+
+input,
+textarea,
+select,
+button {
+  width: 250px;
+  height: 24px;
+  padding: 0;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+input#newsletter {
+    width: 20px;
+}
+
+a:hover,
+input:hover,
+button:hover,
+select:hover,
+a:focus,
+input:focus,
+button:focus,
+select:focus {
+  font-weight: bold;
+}
