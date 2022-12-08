@@ -8,12 +8,12 @@ body {
 }
 
 .rightside {
-    width: 70vw;
+    width: 60vw;
     align-items: center;
 }
 
 .leftside {
-    width: 30vw;
+    width: 40vw;
     position: relative;
     display: flex;
     flex-flow: row nowrap;
@@ -130,7 +130,6 @@ img#odin {
     height: 35px;
 }
 
-
 #phototext {
     text-align: center;
     position: absolute;
@@ -138,6 +137,12 @@ img#odin {
     left: 2%;
 }
 
+form#test {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .form-box { 
     padding: 0px 32px 32px 32px;
@@ -172,10 +177,8 @@ label {
     margin-left: 1rem;
 }
 
-input,
-textarea,
-select {
-  width: 250px;
+input {
+  width: clamp(275px, 20vw, 400px);
   height: clamp(22px, 28px, 35px);
   padding: 0.5rem;
   margin-bottom: 10px;
@@ -202,4 +205,14 @@ select:focus {
 input:focus {
     border: 1px solid gray;
     box-shadow: 2px 2px 5px rgb(56, 55, 55);
+}
+
+form.submitted input:invalid{
+    border:1px solid rgb(186, 18, 18);
+    box-shadow: 2px 2px 3px rgb(106, 11, 11);
+}
+
+form.submitted input:valid{
+    border:1px solid rgb(7, 106, 7);
+    box-shadow: 2px 2px 3px rgb(30, 151, 5);
 }

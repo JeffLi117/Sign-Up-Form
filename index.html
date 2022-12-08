@@ -27,7 +27,7 @@
 
     <h1>Let's do this.</h1>
     <div class="form-box">
-    <form action="#" method="get">
+    <form action="#" method="get" id="test">
         <div class="column1">
             <label for="fname">First name</label><br>
             <input type="text" id="fname" name="first_name" placeholder="Jon" required >
@@ -38,21 +38,20 @@
         </div>
         <div class="column1">
             <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" placeholder="knowsnothing@got.com" title="Please enter a valid email address, example: knowsnothing@got.com" required >
+            <input type="email" id="email" name="email" placeholder="knowsnothing@got.com" title="Please enter a valid email address; example: knowsnothing@got.com" required >
         </div>
         <div class="column2">
             <label for="phone">Phone Number</label><br>
-            <input type="text" pattern="^[^0-9]+$" id="phone" name="phone_number" placeholder="123-456-7890" title="Please enter a valid phone number, example: 123-456-7890">
+            <input type="text" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phone" name="phone_number" placeholder="123-456-7890" title="Please enter a valid phone number; example: 123-456-7890">
         </div>
         <div class="column1">
             <label for="pwd">Password</label><br>
-            <input type="password" id="pwd" name="password" class="error" required >
+            <input type="password" id="pwd" name="password" class="pwderror" required >
         </div>
         <div class="column2">
             <label for="confirmpwd">Confirm Password</label><br>
-            <input type="password" id="confirmpwd" name="confirm_password" class="error" required >
+            <input type="password" id="confirmpwd" name="confirm_password" class="pwderror" required >
         </div>        
-    </form>
     </div>
     </div>
 
@@ -63,11 +62,18 @@
 
     <div class="tooltip">
         <span class="tooltiptext">Please note that all fields are submitted into nothingness. No information will be saved.</span>
-    <button type="submit">Create Account</button>
+    <button type="submit" id="submitButton">Create Account</button>
+    </form>
     </div>
 
     <p>Already have an account? <a href="https://www.youtube.com/watch?v=eBGIQ7ZuuiU">Log in</a></p> 
 
     </div>
+
+    <script>
+        document.getElementById("submitButton").addEventListener("click", (e) => {
+            document.getElementById("test").className="submitted";
+        });
+    </script>
 </body>
 </html>
