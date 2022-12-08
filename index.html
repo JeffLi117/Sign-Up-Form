@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="leftside">
-        <img src="https://github.com/JeffLi117/Sign-Up-Form/blob/main/toa-heftiba-DUXACn8tgp4-unsplash.jpg?raw=true" alt="campfire">
+        <img src="https://github.com/JeffLi117/Sign-Up-Form/blob/main/toa-heftiba-DUXACn8tgp4-unsplash.jpg?raw=true" alt="campfire" id="campfire">
         <div id="phototext">Photo by <a href="https://unsplash.com/@heftiba?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Toa Heftiba</a> on <a href="https://unsplash.com/s/photos/campfire?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
         </div>
         <img src="https://github.com/JeffLi117/Sign-Up-Form/blob/main/odin-lined.png?raw=true" id="odin">
@@ -19,7 +19,7 @@
     <div class="rightside">
     <p>
         Hello, traveler. You look weary. Perhaps you could use a short rest by the bonfire before resuming your travels on the deep, dark abyss known as the internet? Do stay and sign up on this <em>totally real</em> online service that I made for fun. 
-        <br><br>
+        <br>
         Do note that by clicking the "Create Account" button, you are agreeing to sit with me and roast marshmallows virtually to create our imaginary S'mores.
     </p>
 
@@ -46,11 +46,11 @@
         </div>
         <div class="column1">
             <label for="pwd">Password</label><br>
-            <input type="password" id="pwd" name="password" required >
+            <input type="password" id="pwd" name="password" class="error" required >
         </div>
         <div class="column2">
             <label for="confirmpwd">Confirm Password</label><br>
-            <input type="password" id="confirmpwd" name="confirm_password" required >
+            <input type="password" id="confirmpwd" name="confirm_password" class="error" required >
         </div>        
     </form>
     </div>
@@ -61,7 +61,11 @@
         <label for="newsletter">Send me weekly <span id="potions">potions</span> while I'm away questing!</label>
     </p>
 
-      <button type="submit">Create Account</button>
+    <div class="tooltip">
+        <span class="tooltiptext">Please note that all fields are submitted into nothingness. No information will be saved.</span>
+    <button type="submit">Create Account</button>
+    </div>
+
     <p>Already have an account? <a href="https://www.youtube.com/watch?v=eBGIQ7ZuuiU">Log in</a></p> 
 
     </div>

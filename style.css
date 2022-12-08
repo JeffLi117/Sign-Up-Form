@@ -1,12 +1,9 @@
-:root {
-    background-color: gray;
-}
-
 body {
     display: flex;
     background-color:rgb(163, 162, 162);
     margin: auto;
-    width: 70vw;
+    height: 100vh;
+    width: 100vw;
     font-family: 'Noto Sans JP', sans-serif;
 }
 
@@ -16,17 +13,27 @@ body {
 }
 
 .leftside {
+    width: 30vw;
     position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.leftside img#campfire {
+    height: 100%;
+    width: 100%;
 }
 
 body p:first-child {
     margin: 2rem;
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 1.3rem, 24px);
+    white-space: pre-line;
 }
 
 body p:nth-child(2) {
     margin: 2rem;
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 1.3rem, 24px);
 }
 
 body p:last-child {
@@ -40,7 +47,7 @@ input#newsletter {
 }
 
 button {
-    font-size: 1rem;
+    font-size: clamp(1rem, 1.1rem, 20px);
     margin-left: 2rem;
     margin-bottom: 0.5rem;
     border-radius: 10px;
@@ -50,6 +57,47 @@ button {
     height: 2.2rem;
     padding: 0.5rem;
     box-sizing: border-box;
+}
+
+button:hover,
+button:focus {
+    font-weight: bold;
+    color: rgb(153, 0, 0);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+ .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 5px;
+
+    position: absolute;
+    z-index: 1;
+    top: -15px;
+    left: 105%;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
 }
 
 span#potions:hover {
@@ -66,10 +114,12 @@ h1 {
     padding-left: 2rem;
 }
 
-img {
-    display: block;
+img#campfire {
+    display: flex;
     width: 30vw;
+    max-height:100%;
     position: relative;
+    align-self: center;
 }
 
 img#odin {
@@ -96,17 +146,18 @@ img#odin {
 }
 
 label, input:placeholder-shown {
-    font-size: 1.2em;
+    font-size: clamp(1.2rem, 1.3rem, 24px);
 }
 
 label {
     text-align: right;
-    width: 50%;
+    margin-left:2px;
+    min-width: 50%;
     white-space: nowrap;
 }
 
 .column1 {
-    width: 50% - 1rem;
+    min-width: calc(50%-1rem);
     float: left;
     text-transform: uppercase;
     font-family: "Oswald", sans-serif;
@@ -114,7 +165,7 @@ label {
 }
 
 .column2 {
-    width: 50% - 1rem;
+    min-width: calc(50%-1rem);
     float: left;
     text-transform: uppercase;
     font-family: "Oswald", sans-serif;
@@ -125,8 +176,8 @@ input,
 textarea,
 select {
   width: 250px;
-  height: 24px;
-  padding: 0;
+  height: clamp(22px, 28px, 35px);
+  padding: 0.5rem;
   margin-bottom: 10px;
   box-sizing: border-box;
 }
@@ -141,11 +192,14 @@ input#newsletter {
 
 a:hover,
 input:hover,
-button:hover,
 select:hover,
 a:focus,
 input:focus,
-button:focus,
 select:focus {
   font-weight: bold;
+}
+
+input:focus {
+    border: 1px solid gray;
+    box-shadow: 2px 2px 5px rgb(56, 55, 55);
 }
