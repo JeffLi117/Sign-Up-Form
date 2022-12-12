@@ -238,3 +238,25 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+input + span {
+    position: relative;
+  }
+  
+input#confirmpwd + span#pwdreminder::after {
+    content: "";
+  }
+
+input#confirmpwd + span.special#pwdreminder::after {
+    font-size: 0.8rem;
+    position: absolute;
+    text-transform: none;
+    font-family:Arial, Helvetica, sans-serif;
+    content: "Please make sure both passwords match!";
+    color: white;
+    background-color: black;
+    width: 14.5vw;
+    padding: 5px 10px;
+    bottom: -40px;
+    right: 1px;
+  }
