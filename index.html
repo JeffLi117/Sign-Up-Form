@@ -89,25 +89,28 @@
         
         // "toggles" reminder to use the correct format
         function emltoggler() {
-            let mailelement = document.getElementById("email");
+            var mailelement = document.getElementById("emlreminder");
             mailelement.classList.toggle("special");
+            console.log("toggler worked!")
         }
 
         // after email input, checks for validity
+        // after each keydown, if it doesn't match regex, displays email reminder to use correct form + red border
         document.getElementById("email").addEventListener("keydown", (e) => {            
             if (validateEmail(document.getElementById("email").value)) {
-                document.getElementById("email").classList.remove("special");
-                console.log("Good email address");
-            } else if (validateEmail(document.getElementById("email").value) != "true") {
-                emltoggler();
-                console.log("Initial bad email address");
-            } else {
-                console.log("Continuously bad email address");
+                document.getElementById("emlreminder").classList.remove("special");
+                document.getElementById("email").classList.remove("eml_error");
+                document.getElementById("email").classList.add("eml_correct");
+            } else if (validateEmail(document.getElementById("email").value) != "true" && document.getElementById("emlreminder").classList.value === "special") {
+                document.getElementById("email").classList.remove("eml_correct");
+                document.getElementById("email").classList.add("eml_error");
                 return
+            } else {
+                emltoggler();
+                document.getElementById("email").classList.remove("eml_correct");
+                document.getElementById("email").classList.add("eml_error");
             }
         })
-        
-        
 
         // create addeventlistener that checks that both passwords are matching as user is typing in "confirm password" form
         // pwdreminder is active while typing in confirm password until they both match
@@ -144,15 +147,6 @@
                 console.log("Toggled on the pwdreminder!")
             }
         })
-        // use pwdtoggler as user types, remove .special once both passwords match
-        // when both passwords match, add class of "matched" and make both valid
-
-        // upon submission, ensure that all required fields are valid
-
-        //still need to solve why emlreminder is not displaying
-
-
-
 
         /* // pwd check upon submission 
         document.getElementById("submitButton").addEventListener("click", (e) => {

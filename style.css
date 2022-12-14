@@ -218,25 +218,22 @@ input:focus {
     box-shadow: 2px 2px 5px rgb(56, 55, 55);
 }
 
-form.submitted input:invalid{
+form.submitted input:invalid,
+input.passwordtyping_error,
+input.eml_error
+{
     border:1px solid rgb(186, 18, 18);
     box-shadow: 2px 2px 3px rgb(106, 11, 11);
 }
 
-form.submitted input:valid{
+form.submitted input:valid,
+input.passwordtyping_correct,
+input.eml_correct
+{
     border:1px solid rgb(7, 106, 7);
     box-shadow: 2px 2px 3px rgb(30, 151, 5);
 }
 
-input.passwordtyping_error{
-    border:1px solid rgb(186, 18, 18);
-    box-shadow: 2px 2px 3px rgb(106, 11, 11);
-}
-
-input.passwordtyping_correct {
-    border:1px solid rgb(7, 106, 7);
-    box-shadow: 2px 2px 3px rgb(30, 151, 5);
-}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -282,6 +279,6 @@ input#email + span.special#emlreminder::after {
     background-color: black;
     width: 14.5vw;
     padding: 5px 10px;
-    top: -40px;
+    top: -33px;
     right: 1px;
   }
