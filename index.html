@@ -38,7 +38,7 @@
         </div>
         <div class="column1">
             <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" placeholder="knowsnothing@got.com" title="Please enter a valid email address; example: knowsnothing@got.com" required >
+            <input type="email" id="email" name="email" placeholder="knowsnothing@got.com" title="Please enter a valid email address; example: knowsnothing@got.com" required ><span id="emlreminder"></span>
         </div>
         <div class="column2">
             <label for="phone">Phone Number</label><br>
@@ -46,11 +46,11 @@
         </div>
         <div class="column1">
             <label for="PASSWORD">Password</label><br>
-            <input type="password" id="PASSWORD" name="password" class="pwderror" required >
+            <input type="password" id="PASSWORD" name="password" required >
         </div>
         <div class="column2">
             <label for="confirmpwd">Confirm Password</label><br>
-            <input type="password" id="confirmpwd" name="confirm_password" class="pwderror" required ><span id="pwdreminder"></span>
+            <input type="password" id="confirmpwd" name="confirm_password" required ><span id="pwdreminder"></span>
         </div>        
     </div>
     </div>
@@ -72,19 +72,132 @@
 
     <script>
 
-        function toggler() {
+        // function to ensure correct email format
+        function validateEmail(email) {
+            let re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }  
+
+        // "toggles" pwd reminder to make sure both match 
+        // adds "Invalid field." to both inputs to make their borders red colored
+        function pwdtoggler() {
             var element = document.getElementById("pwdreminder");
             element.classList.toggle("special");
+            document.getElementById("PASSWORD").setCustomValidity("Invalid field.");
+            document.getElementById("confirmpwd").setCustomValidity("Invalid field.");
+        }        
+        
+        // "toggles" reminder to use the correct format
+        function emltoggler() {
+            let mailelement = document.getElementById("email");
+            mailelement.classList.toggle("special");
         }
 
+        // after email input, checks for validity
+        document.getElementById("email").addEventListener("keydown", (e) => {            
+            if (validateEmail(document.getElementById("email").value)) {
+                document.getElementById("email").classList.remove("special");
+                console.log("Good email address");
+            } else if (validateEmail(document.getElementById("email").value) != "true") {
+                emltoggler();
+                console.log("Initial bad email address");
+            } else {
+                console.log("Continuously bad email address");
+                return
+            }
+        })
+        
+        
+
+        // create addeventlistener that checks that both passwords are matching as user is typing in "confirm password" form
+        // pwdreminder is active while typing in confirm password until they both match
+        // adds invalid state to both pwd and confirmpwd input while passwords do not match
+        document.getElementById("confirmpwd").addEventListener("keyup", (e) => {
+            let first_pwd_input = document.getElementById("PASSWORD")
+            let second_pwd_input = document.getElementById("confirmpwd")
+            let firstpwdval = document.getElementById("PASSWORD").value
+            let secondpwdval = document.getElementById("confirmpwd").value
+
+            if (firstpwdval === secondpwdval) {
+                first_pwd_input.classList.add("passwordtyping_correct");
+                second_pwd_input.classList.add("passwordtyping_correct");
+                first_pwd_input.setCustomValidity("");
+                second_pwd_input.setCustomValidity("");
+                pwdtoggler();
+                console.log("It worked! The pwds are matched")
+            } else if (firstpwdval != secondpwdval && document.getElementById("pwdreminder").classList.value === "special") {
+                first_pwd_input.classList.add("passwordtyping_error");
+                second_pwd_input.classList.add("passwordtyping_error");
+                first_pwd_input.classList.remove("passwordtyping_correct");
+                second_pwd_input.classList.remove("passwordtyping_correct");
+                first_pwd_input.setCustomValidity("Invalid form.");
+                second_pwd_input.setCustomValidity("Invalid form.");
+                console.log("Not matching ATM....")
+            } else if (firstpwdval != secondpwdval) {
+                pwdtoggler();
+                first_pwd_input.classList.add("passwordtyping_error");
+                second_pwd_input.classList.add("passwordtyping_error");
+                first_pwd_input.classList.remove("passwordtyping_correct");
+                second_pwd_input.classList.remove("passwordtyping_correct");
+                first_pwd_input.setCustomValidity("Invalid form.");
+                second_pwd_input.setCustomValidity("Invalid form.");
+                console.log("Toggled on the pwdreminder!")
+            }
+        })
+        // use pwdtoggler as user types, remove .special once both passwords match
+        // when both passwords match, add class of "matched" and make both valid
+
+        // upon submission, ensure that all required fields are valid
+
+        //still need to solve why emlreminder is not displaying
+
+
+
+
+        /* // pwd check upon submission 
         document.getElementById("submitButton").addEventListener("click", (e) => {
             if (document.getElementById("confirmpwd").value != document.getElementById("PASSWORD").value && document.getElementById("pwdreminder").classList != "special") {
-                toggler();
+                pwdtoggler();
+                document.getElementById("test").className="submitted";
                 e.preventDefault();
-            } else if (document.getElementById("pwdreminder").classList === "special") {
+            } 
+            
+            // prevents toggling off reminder if passwords don't match
+            else if (document.getElementById("confirmpwd").value != document.getElementById("PASSWORD").value) {
+                document.getElementById("test").className="submitted";
                 e.preventDefault();
-            } else {document.getElementById("test").className="submitted"};
-        });
+            } 
+
+            // prevents submission of pwds if empty
+            else if (document.getElementById("confirmpwd").value === document.getElementById("PASSWORD").value && document.getElementById("confirmpwd").value === "") {
+                document.getElementById("test").className="submitted";
+                e.preventDefault();    
+            } 
+            
+            // stops toggling if other fields are empty but pwds match
+            else if (document.getElementById("confirmpwd").value === document.getElementById("PASSWORD").value && document.getElementById("fname").value === "" || document.getElementById("confirmpwd").value === document.getElementById("PASSWORD").value && document.getElementById("lname").value === "" || document.getElementById("confirmpwd").value === document.getElementById("PASSWORD").value && document.getElementById("email").value === "") {
+                document.getElementById("test").className="submitted";
+                e.preventDefault();     
+            } 
+            
+            // prevents submission of form if pwds match but other fields are empty (except phone number)
+            else if (document.getElementById("confirmpwd").value === document.getElementById("PASSWORD").value && document.getElementById("fname").value === "" || document.getElementById("confirmpwd").value === document.getElementById("PASSWORD").value && document.getElementById("lname").value === "" || document.getElementById("confirmpwd").value === document.getElementById("PASSWORD").value && document.getElementById("email").value === "") {
+                pwdtoggler();
+                document.getElementById("test").className="submitted";
+                e.preventDefault();     
+            } 
+            
+            else if (document.getElementById("confirmpwd").value === document.getElementById("PASSWORD").value && document.getElementById("email")) {
+                pwdtoggler();
+                document.getElementById("test").className="submitted";
+                e.preventDefault();    
+            } else if (document.getElementById("confirmpwd").value === document.getElementById("PASSWORD").value && document.getElementById("email")) {
+                document.getElementById("test").submit();    
+            }
+        }); */
+
+        // displays reminder for passwords to match & prevents submission until they match
+
 
         // add dashes (-) automatically for phone number entry
         // also removes dashes automatically when backspacing 
